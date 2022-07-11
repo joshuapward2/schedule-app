@@ -6,31 +6,34 @@
 
 $(document).ready(function(){
 
-   $(".save-btn").on("click", function() {
-      var taskContent =$(this).siblings(".contentbox").val();
-
-      localStorage.saveT
-   
-   })
-   
-   const now = new Date();
-   const hours = now.getHours();
-   const timeTextEl =document.querySelector(".hour")
-
-   let bgColor;
-   if(hours === timeTextEl)
-      bgColor = "green";
-   else if(hours > timeTextEl)
-      bgColor = "red";
-   else if(hours < timeTextEl)
-      bgColor = "blue";
-
-      bgColor.innerHtml = now.toDateString();
-      timeTextEl.style.bgColor = bgColor;
-
-
+   $(".saveBtn").on("click", function() {
+    $(".col-md-10 contentbox").val(textvalue);
    
 
+      localStorage.setItem(".saveBtn", JSON. stringify(textvalue)
+   
+   );})
+
+      
+         
+   const currentTime = moment().hour
+   var currentBlock = document.getElementsByClassName(".col-md-1 hour")
+
+
+   if(currentTime === currentBlock){
+      currentBlock = $(currentBlock).addClass(".present")
+
+   }
+   
+   
+
+
+
+
+
+
+   
+   
 
 })
 
