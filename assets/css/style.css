@@ -72,3 +72,20 @@ textarea{
 
 
 /*  Section for CSS overwrite */
+
+@media screen and (min-width: 768px) {
+
+  .container {
+
+    height: flex;
+    width: flex;
+    justify-content: center;
+  }
+  .save-btn { 
+    height: flex;
+    width: flex;
+    justify-content: center;
+
+  }
+  
+}
