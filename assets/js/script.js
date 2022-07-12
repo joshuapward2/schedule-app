@@ -7,32 +7,47 @@
 $(document).ready(function(){
 
    $(".saveBtn").on("click", function() {
-    $(".col-md-10 contentbox").val(textvalue);
+
+      var boxContent = $(this).siblings(".contentbox").val;
+      var timeSlot = $(this).parent().attr("id");
+    
+      
    
 
-      localStorage.setItem(".saveBtn", JSON. stringify(textvalue)
+      localStorage.setItem(timeSlot, boxContent);
    
-   );})
+   })
+
+   function timelooper(){
+
+      
 
       
          
-   const currentTime = moment().hour
-   var currentBlock = document.getElementsByClassName(".col-md-1 hour")
+   var currentTime = moment().hour
+   var currentBlock = $(".col-md-1 hour")
+   var textAreaEl = $("col-md-10 contentbox")
 
 
    if(currentTime === currentBlock){
-      currentBlock = $(currentBlock).addClass(".present")
+     $(textAreaEl).addClass(".present")
 
    }
-   
-   
+
+   if(currentTime > currentBlock) {
+      $(textAreaEl).addClass(".future")
 
 
+   }
+
+   if(currentTime < currentBlock) {
+      $(textAreaEl).addClass(".past")
+   }
 
 
+}
+   timelooper();
 
-
-   
    
 
 })
