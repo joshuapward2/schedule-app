@@ -7,26 +7,25 @@
 $(document).ready(function(){
 
    $(".saveBtn").on("click", function() {
-
-      var boxContent = $(this).siblings(".contentbox").val;
+      console.log($(this))
+      // var boxContent = $(this).siblings(".contentbox").val;
       var timeSlot = $(this).parent().attr("id");
     
       
    
 
-      localStorage.setItem(timeSlot, boxContent);
+      localStorage.setItem(JSON.stringify(timeSlot, boxContent));
    
    })
+   var currentTime = moment().hour();
+   var currentBlock = $(".col-md-1 hour")
+   var textAreaEl = $(".col-md-10 contentbox")
+
 
    function timelooper(){
 
-      
-
-      
          
-   var currentTime = moment().hour
-   var currentBlock = $(".col-md-1 hour")
-   var textAreaEl = $("col-md-10 contentbox")
+     $(".contentbox").each(function(){}) 
 
 
    if(currentTime === currentBlock){
@@ -44,14 +43,12 @@ $(document).ready(function(){
       $(textAreaEl).addClass(".past")
    }
 
-
+     
 }
-   timelooper();
-
-   
-
+timelooper()
 })
 
+      
 
 
 
