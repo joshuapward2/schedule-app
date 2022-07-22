@@ -3,7 +3,7 @@
    var todaysFullDate = moment().format('MMMM Do YYYY, h:mm:ss a');
    $("#currentDay").html(todaysFullDate);
 
-//container, row, columns and buttons functionality//
+//planner text elements and their functionality//
 
  $(document).ready(function(){
 
@@ -11,22 +11,22 @@
   
     var boxContent = $(this).siblings(".contentbox").val();
     var timeSlot = $(this).parent().attr("id");
-      // var boxContent = $(".contentbox").val();
-      //var timeSlot
-    
-      
-   
+     
+    // Saves items to local storage
 
        localStorage.setItem(timeSlot, boxContent);
    
  })
+ 
+// Variables to be used 
+
    var currentT = moment().hour();
    var allBlocks = $(".time-block")
    var block8 = $("#8").attr('id');
    var textAreaEl = $(".contentbox")
 
    
-  
+  // Retrieve items from local storage
 
    $("#8").children('.contentbox').val(localStorage.getItem("8"));
    $("#9").children('.contentbox').val(localStorage.getItem("9"));
@@ -39,11 +39,13 @@
    $("#16").children('.contentbox').val(localStorage.getItem("16"));
    $("#17").children('.contentbox').val(localStorage.getItem("17"));
 
+
+   //Iteration through array//
+
    
 
          for(var i=0;i < allBlocks.length;i++) {
-            console.log(textAreaEl[i])
-console.log(allBlocks)
+            
 
     if(currentT === allBlocks[i].id){
      textAreaEl[i].classList.add("present")
