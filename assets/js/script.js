@@ -21,12 +21,12 @@
    
  })
    var currentT = moment().hour();
-   var currentBlock = $(".time-block").attr('id');
+   var allBlocks = $(".time-block")
    var block8 = $("#8").attr('id');
    var textAreaEl = $(".contentbox")
 
    
-   // function timelooper(){
+  
 
    $("#8").children('.contentbox').val(localStorage.getItem("8"));
    $("#9").children('.contentbox').val(localStorage.getItem("9"));
@@ -41,41 +41,22 @@
 
    
 
-         
-      //  $("#id").each(function(currentBlock,currentT){
-console.log(currentT)
-console.log(currentBlock)
+         for(var i=0;i < allBlocks.length;i++) {
+            console.log(textAreaEl[i])
+console.log(allBlocks)
 
-   if(currentT === currentBlock){
-      $(textAreaEl).addClass(".present")
-
+    if(currentT === allBlocks[i].id){
+     textAreaEl[i].classList.add("present")
     }
 
-   if(currentT > currentBlock) {
-      $(textAreaEl).addClass(".past")
+   if(currentT > allBlocks[i].id) {
+      textAreaEl[i].classList.add("past")
 
 
    }
 
-   if(currentT < currentBlock) {
-     $(textAreaEl).addClass(".future")
+   if(currentT < allBlocks[i].id) {
+      textAreaEl[i].classList.add("future")
     }
-
-      //   function( moment.hour)
-// })
-
- })
-
-      
-
-
-
-
-
-
-
-
-
-
-
-  
+         }
+ });
